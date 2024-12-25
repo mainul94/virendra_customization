@@ -1,7 +1,7 @@
 import frappe
 
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True, methods=["POST"])
 def wasender_message(response: dict):
     contact = response.get("contact", {})
     _map_dict = {
