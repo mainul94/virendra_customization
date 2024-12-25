@@ -2,8 +2,8 @@ import frappe
 
 
 @frappe.whitelist()
-def wasender_message(**kwargs):
-    contact = kwargs.get("contact", {})
+def wasender_message(response: dict):
+    contact = response.get("contact", {})
     _map_dict = {
         "mobile_no": contact.get("phone_number"),
         "whatsapp_no": contact.get("phone_number"),
