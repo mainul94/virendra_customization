@@ -242,3 +242,13 @@ required_apps = ['frappe', 'erpnext']
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [
+    {
+        "dt": "Custom Field",
+        "filters": [["module", "=", "Virendra Customization"]]
+    },
+    {
+        "dt": "Property Setter",
+        "filters": [["module", "=", "Virendra Customization"]]
+    }
+]
