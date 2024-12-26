@@ -37,11 +37,11 @@ def execute(filters=None):
 
 	data = query.run(as_dict=True)
 
-	for d in data:
-		frappe.msgprint(str(d.name))
+	# for d in data:
+	# 	frappe.msgprint(str(d.name))
 	# 	frappe.msgprint(str(d))
-		tasks = frappe.db.get_list("Task", fields=["*"])
-		frappe.msgprint(str(tasks))
+		# tasks = frappe.db.get_list("Task", fields=["*"])
+		# frappe.msgprint(str(tasks))
 		# if tasks:
 		# 	frappe.msgprint(str(tasks))
 	# 	if notes:
