@@ -2,14 +2,16 @@
 # For license information, please see license.txt
 
 import frappe
+from pypika import Order
 
 
 def execute(filters=None):
 	lead = frappe.qb.DocType("Lead")
-	query = frappe.qb.from_(lead).select(
-		lead.name, lead.creation, lead.lead_name, lead.mobile_no, lead.custom_model, 
-		lead.custom_variant, lead.custom_vehicle_status, lead.custom_buying_in_days, lead.lead_owner
-	)
+	lead_note = frappe.qb.DocType("CRM Note")
+	query = (frappe.qb.from_(lead).select(
+			lead.name, lead.creation, lead.lead_name, lead.mobile_no, lead.custom_model, 
+			lead.custom_variant, lead.custom_vehicle_status, lead.custom_buying_in_days, lead.lead_owner, lead_note.note.as_('last_note')
+		).left_join(lead_note).on(lead.name == lead_note.parent).groupby(lead.name).orderby(lead.modified, order=Order.desc).orderby(lead_note.modified, order=Order.desc))
 	
 	if filters:
 		if filters.get("Name"):
@@ -37,12 +39,6 @@ def execute(filters=None):
 
 	data = query.run(as_dict=True)
 
-	# for d in data:
-	# 	frappe.msgprint(str(d))
-	# 	notes = frappe.db.get_list("CRM Note", filters={"parent": d.name}, fields=["*"])
-	# 	if notes:
-	# 		d["last_note"] = notes[0].note
-
 	columns = [
 		{"fieldname": "creation", "label": "Creation", "fieldtype": "Date", "width": 150},
 		{"fieldname": "lead_name", "label": "Lead Name", "fieldtype": "Data", "width": 150},
@@ -51,7 +47,7 @@ def execute(filters=None):
 		{"fieldname": "custom_variant", "label": "Variant", "fieldtype": "Data", "width": 150},
 		{"fieldname": "custom_vehicle_status", "label": "Vehicle Status", "fieldtype": "Data", "width": 150},
 		{"fieldname": "custom_buying_in_days", "label": "Buying in Days", "fieldtype": "Data", "width": 150},
-		# {"fieldname": "last_note", "label": "Last Note", "fieldtype": "Data", "width": 150},
+		{"fieldname": "last_note", "label": "Last Note", "fieldtype": "Data", "width": 150},
 		{"fieldname": "lead_owner", "label": "Assigned To", "fieldtype": "Data", "width": 150}
 	]
 
