@@ -1,0 +1,33 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-12-26 19:21:45.869555",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2024-12-26 19:21:45.869555",
+ "modified_by": "Administrator",
+ "module": "Virendra Customization",
+ "name": "Lead Enquiry Pending Follow-ups",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Lead",
+ "report_name": "Lead Enquiry Pending Follow-ups",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "Sales Manager"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}
