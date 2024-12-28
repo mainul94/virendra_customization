@@ -1,34 +1,23 @@
 // Copyright (c) 2024, Cloudy Camp Limited and contributors
 // For license information, please see license.txt
 
-frappe.query_reports["Lead Enquiry Pending Follow-ups"] = {
-	"filters": [
-		{
-			"fieldname":"name",
-			"label": __("Name"),
-			"fieldtype": "Data",
-		},
-		{
-			"fieldname":"mobile",
-			"label": __("Mobile"),
-			"fieldtype": "Data"
-		},
-		{
-			"fieldname": "status",
-			"label": __("Status"),
-			"fieldtype": "Select",
-			"options": [" ", "Test Drive Completed", "Retail", "Booking", "Lost"]
-		},
-		{
-			"fieldname":"from_date",
-			"label": __("From Date"),
-			"fieldtype": "Date"
-		},
-		{
-			"fieldname":"to_date",
-			"label": __("To Date"),
-			"fieldtype": "Date"
-		},
+frappe.query_reports["Enquiries of Yesterday"] = {
+	filters: [{
+		"fieldname":"name",
+		"label": __("Name"),
+		"fieldtype": "Data",
+	},
+	{
+		"fieldname":"mobile",
+		"label": __("Mobile"),
+		"fieldtype": "Data"
+	},
+	{
+		"fieldname": "status",
+		"label": __("Status"),
+		"fieldtype": "Select",
+		"options": [" ", "Test Drive Completed", "Retail", "Booking", "Lost"]
+	},
 		{
 			"fieldname":"brand",
 			"label": __("Brand"),

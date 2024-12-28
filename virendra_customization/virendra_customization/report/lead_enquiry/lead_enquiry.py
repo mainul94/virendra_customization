@@ -22,22 +22,22 @@ def execute(filters=None):
 		query = query.select(ToDo.date)
 	
 	if filters:
-		if filters.get("Name"):
-			query = query.where(lead.lead_name.like(f"%{filters['Name']}%"))
-		if filters.get("Mobile"):
-			query = query.where(lead.mobile_no.like(f"%{filters['Mobile']}%"))
-		if filters.get("Status"):
-			query = query.where(lead.custom_vehicle_status == filters["Status"])
-		if filters.get("From Date"):
+		if filters.get("name"):
+			query = query.where(lead.lead_name.like(f"%{filters['fame']}%"))
+		if filters.get("mobile"):
+			query = query.where(lead.mobile_no.like(f"%{filters['mobile']}%"))
+		if filters.get("status"):
+			query = query.where(lead.custom_vehicle_status == filters["status"])
+		if filters.get("from_date"):
 			if follow_ups:
-				query = query.where(ToDo.date >= filters["From Date"])
+				query = query.where(ToDo.date >= filters["from_date"])
 			else:
-				query = query.where(lead.creation >= filters["From Date"])
-		if filters.get("To Date"):
+				query = query.where(lead.creation >= filters["from_date"])
+		if filters.get("to_date"):
 			if follow_ups:
-				query = query.where(ToDo.date <= add_to_date(filters["To Date"],hours=23, minutes=59, seconds=59))
+				query = query.where(ToDo.date <= add_to_date(filters["to_date"],hours=23, minutes=59, seconds=59))
 			else:
-				query = query.where(lead.creation <= filters["To Date"])
+				query = query.where(lead.creation <= filters["to_date"])
 		if filters.get("brand"):
 			query = query.where(lead.custom_brand == filters["brand"])
 		if filters.get("model"):

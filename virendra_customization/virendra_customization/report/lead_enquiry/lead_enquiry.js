@@ -4,28 +4,28 @@
 frappe.query_reports["Lead Enquiry"] = {
 	"filters": [
 		{
-			"fieldname":"Name",
+			"fieldname":"name",
 			"label": __("Name"),
 			"fieldtype": "Data",
 		},
 		{
-			"fieldname":"Mobile",
+			"fieldname":"mobile",
 			"label": __("Mobile"),
 			"fieldtype": "Data"
 		},
 		{
-			"fieldname": "Status",
+			"fieldname": "status",
 			"label": __("Status"),
 			"fieldtype": "Select",
 			"options": [" ", "Test Drive Completed", "Retail", "Booking", "Lost"]
 		},
 		{
-			"fieldname":"From Date",
+			"fieldname":"from_date",
 			"label": __("From Date"),
 			"fieldtype": "Date"
 		},
 		{
-			"fieldname":"To Date",
+			"fieldname":"to_date",
 			"label": __("To Date"),
 			"fieldtype": "Date"
 		},
