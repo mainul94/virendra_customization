@@ -2,14 +2,24 @@
 # For license information, please see license.txt
 
 import frappe
+from pypika import Order
+from pypika.functions import Count
+from pypika.terms import Function
 
+class GroupConcat(Function):
+    def __init__(self, term, separator=' '):
+        super().__init__('GROUP_CONCAT', term, separator)
 
 def execute(filters=None):
 	lead = frappe.qb.DocType("Lead")
-	query = frappe.qb.from_(lead).select(
-		lead.name, lead.creation, lead.lead_name, lead.mobile_no, lead.custom_model, 
-		lead.custom_variant, lead.custom_vehicle_status, lead.custom_buying_in_days, lead.lead_owner
-	)
+	lead_note = frappe.qb.DocType("CRM Note")
+	todo = frappe.qb.DocType("ToDo")
+	query = (frappe.qb.from_(lead).select(
+			lead.name, lead.creation, lead.lead_name, lead.mobile_no, lead.custom_model, 
+			lead.custom_variant, lead.custom_vehicle_status, lead.custom_buying_in_days, lead.lead_owner, lead_note.note.as_('last_note'), Count(todo.status).as_('open_todo'), 
+			GroupConcat(todo.assigned_by_full_name).as_('assigned_to')
+		).left_join(lead_note).on(lead.name == lead_note.parent).groupby(lead.name).orderby(lead.modified, order=Order.desc).orderby(lead_note.modified, order=Order.desc)
+		.left_join(todo).on(lead.name == todo.reference_name).where(todo.reference_type == "Lead").where(todo.status == "Open").groupby(lead.name))
 	
 	if filters:
 		if filters.get("Name"):
@@ -37,16 +47,6 @@ def execute(filters=None):
 
 	data = query.run(as_dict=True)
 
-	# for d in data:
-	# 	frappe.msgprint(str(d.name))
-	# 	frappe.msgprint(str(d))
-		# tasks = frappe.db.get_list("Task", fields=["*"])
-		# frappe.msgprint(str(tasks))
-		# if tasks:
-		# 	frappe.msgprint(str(tasks))
-	# 	if notes:
-	# 		d["last_note"] = notes[0].note
-
 	columns = [
 		{"fieldname": "creation", "label": "Creation", "fieldtype": "Date", "width": 150},
 		{"fieldname": "lead_name", "label": "Lead Name", "fieldtype": "Data", "width": 150},
@@ -55,8 +55,8 @@ def execute(filters=None):
 		{"fieldname": "custom_variant", "label": "Variant", "fieldtype": "Data", "width": 150},
 		{"fieldname": "custom_vehicle_status", "label": "Vehicle Status", "fieldtype": "Data", "width": 150},
 		{"fieldname": "custom_buying_in_days", "label": "Buying in Days", "fieldtype": "Data", "width": 150},
-		# {"fieldname": "last_note", "label": "Last Note", "fieldtype": "Data", "width": 150},
-		{"fieldname": "lead_owner", "label": "Assigned To", "fieldtype": "Data", "width": 150}
+		{"fieldname": "last_note", "label": "Last Note", "fieldtype": "Data", "width": 150},
+		{"fieldname": "assigned_to", "label": "Assigned To", "fieldtype": "Data", "width": 150}
 	]
 
 	return columns, data
