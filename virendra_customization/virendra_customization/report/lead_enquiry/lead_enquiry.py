@@ -3,6 +3,7 @@
 
 import frappe
 from pypika import Order
+from frappe.utils import add_to_date
 
 
 def execute(filters=None):
@@ -12,6 +13,13 @@ def execute(filters=None):
 			lead.name, lead.creation, lead.lead_name, lead.mobile_no, lead.custom_model, 
 			lead.custom_variant, lead.custom_vehicle_status, lead.custom_buying_in_days, lead.lead_owner, lead_note.note.as_('last_note')
 		).left_join(lead_note).on(lead.name == lead_note.parent).groupby(lead.name).orderby(lead.modified, order=Order.desc).orderby(lead_note.modified, order=Order.desc))
+
+	follow_ups =  filters.pop('pending_flow_ups', False)
+	if follow_ups:
+		ToDo = frappe.qb.DocType("ToDo")
+		query = query.join(ToDo).on(lead.name == ToDo.reference_name).where(ToDo.status == 'Open')
+		query = query.where(ToDo.reference_type == 'Lead')
+		query = query.select(ToDo.date)
 	
 	if filters:
 		if filters.get("Name"):
@@ -21,9 +29,15 @@ def execute(filters=None):
 		if filters.get("Status"):
 			query = query.where(lead.custom_vehicle_status == filters["Status"])
 		if filters.get("From Date"):
-			query = query.where(lead.creation >= filters["From Date"])
+			if follow_ups:
+				query = query.where(ToDo.date >= filters["From Date"])
+			else:
+				query = query.where(lead.creation >= filters["From Date"])
 		if filters.get("To Date"):
-			query = query.where(lead.creation <= filters["To Date"])
+			if follow_ups:
+				query = query.where(ToDo.date <= add_to_date(filters["To Date"],hours=23, minutes=59, seconds=59))
+			else:
+				query = query.where(lead.creation <= filters["To Date"])
 		if filters.get("brand"):
 			query = query.where(lead.custom_brand == filters["brand"])
 		if filters.get("model"):
@@ -50,5 +64,7 @@ def execute(filters=None):
 		{"fieldname": "last_note", "label": "Last Note", "fieldtype": "Data", "width": 150},
 		{"fieldname": "lead_owner", "label": "Assigned To", "fieldtype": "Data", "width": 150}
 	]
+	if follow_ups:
+		columns.insert(-2, {"fieldname": "date", "label": "Due Date", "fieldtype": "Date", "width": 150})
 
 	return columns, data
