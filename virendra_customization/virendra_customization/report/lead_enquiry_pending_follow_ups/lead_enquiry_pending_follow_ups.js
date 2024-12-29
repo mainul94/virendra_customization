@@ -56,13 +56,13 @@ frappe.query_reports["Lead Enquiry Pending Follow-ups"] = {
 			"fieldname":"status",
 			"label": __("Lead Status"),
 			"fieldtype": "Select",
-			"options": [" ", "Test Drive Completed", "Retail", "Booking", "Lost"]
+			"options": [" ", "Hot", "Warm", "Cold", "Lost"]
 		},
 		{
-			"fieldname":"lead_type",
+			"fieldname":"lead_progress",
 			"label": __("Lead Progress"),
 			"fieldtype": "Select",
-			"options": [" ", "Client", "Channel Partner", "Consultant"]
+			"options": [" ", "Callback Scheduled", "TD Requested", "Home TD Scheduled", "Showroom Visit Scheduled", "Showroom TD Scheduled", "Price Quote Shared", "Purchased Other Vehicle / Lost", "Booked"]
 		},
 		{
 			"fieldname":"lead_owner",
