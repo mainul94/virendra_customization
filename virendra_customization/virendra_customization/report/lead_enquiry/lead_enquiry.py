@@ -48,8 +48,8 @@ def execute(filters=None):
 			query = query.where(lead.custom_pincode == filters["pincode"])
 		if filters.get("status"):
 			query = query.where(lead.custom_vehicle_status == filters["status"])
-		if filters.get("lead_type"):
-			query = query.where(lead.type == filters["lead_type"])
+		if filters.get("lead_progress"):
+			query = query.where(lead.custom_lead_progress == filters["lead_progress"])
 		if filters.get("lead_owner"):
 			query = query.where(lead.lead_owner == filters["lead_owner"])
 
