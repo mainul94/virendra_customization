@@ -14,12 +14,6 @@ frappe.query_reports["Lead Enquiry"] = {
 			"fieldtype": "Data"
 		},
 		{
-			"fieldname": "status",
-			"label": __("Status"),
-			"fieldtype": "Select",
-			"options": [" ", "Test Drive Completed", "Retail", "Booking", "Lost"]
-		},
-		{
 			"fieldname":"from_date",
 			"label": __("From Date"),
 			"fieldtype": "Date"
@@ -37,7 +31,7 @@ frappe.query_reports["Lead Enquiry"] = {
 		},
 		{
 			"fieldname":"model",
-			"label": __("Model"),
+			"label": __("Vehicle"),
 			"fieldtype": "Link",
 			"options": "Model"
 		},
@@ -54,16 +48,27 @@ frappe.query_reports["Lead Enquiry"] = {
 			"options": "City"
 		},
 		{
-			"fieldname":"lead_owner",
-			"label": __("Lead Owner"),
-			"fieldtype": "Link",
-			"options": "User"
+			"fieldname":"pincode",
+			"label": __("Pincode"),
+			"fieldtype": "Data"
 		},
 		{
-			"fieldname":"lead_type",
-			"label": __("Lead Type"),
+			"fieldname":"status",
+			"label": __("Lead Status"),
 			"fieldtype": "Select",
-			"options": [" ", "Client", "Channel Partner", "Consultant"]
+			"options": [" ", "Hot", "Warm", "Cold", "Lost"]
+		},
+		{
+			"fieldname":"lead_progress",
+			"label": __("Lead Progress"),
+			"fieldtype": "Select",
+			"options": [" ", "Callback Scheduled", "TD Requested", "Home TD Scheduled", "Showroom Visit Scheduled", "Showroom TD Scheduled", "Price Quote Shared", "Purchased Other Vehicle / Lost", "Booked"]
+		},
+		{
+			"fieldname":"lead_owner",
+			"label": __("Assigned To"),
+			"fieldtype": "Link",
+			"options": "User"
 		}
 	]
 };

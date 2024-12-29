@@ -23,11 +23,9 @@ def execute(filters=None):
 	
 	if filters:
 		if filters.get("name"):
-			query = query.where(lead.lead_name.like(f"%{filters['fame']}%"))
+			query = query.where(lead.lead_name.like(f"%{filters['name']}%"))
 		if filters.get("mobile"):
 			query = query.where(lead.mobile_no.like(f"%{filters['mobile']}%"))
-		if filters.get("status"):
-			query = query.where(lead.custom_vehicle_status == filters["status"])
 		if filters.get("from_date"):
 			if follow_ups:
 				query = query.where(ToDo.date >= filters["from_date"])
@@ -46,10 +44,14 @@ def execute(filters=None):
 			query = query.where(lead.custom_variant == filters["variant"])
 		if filters.get("city"):
 			query = query.where(lead.custom_city_name == filters["city"])
+		if filters.get("pincode"):
+			query = query.where(lead.custom_pincode == filters["pincode"])
+		if filters.get("status"):
+			query = query.where(lead.custom_vehicle_status == filters["status"])
+		if filters.get("lead_progress"):
+			query = query.where(lead.custom_lead_progress == filters["lead_progress"])
 		if filters.get("lead_owner"):
 			query = query.where(lead.lead_owner == filters["lead_owner"])
-		if filters.get("lead_type"):
-			query = query.where(lead.type == filters["lead_type"])
 
 	data = query.run(as_dict=True)
 
