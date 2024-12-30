@@ -11,7 +11,7 @@ def execute(filters=None):
 	lead_note = frappe.qb.DocType("CRM Note")
 	query = (frappe.qb.from_(lead).select(
 			lead.name, lead.creation, lead.lead_name, lead.mobile_no, lead.custom_model, 
-			lead.custom_variant, lead.lead_status,, lead.lead_progress, lead.custom_buying_in_days, lead.lead_owner, lead_note.note.as_('last_note')
+			lead.custom_variant, lead.lead_status, lead.lead_progress, lead.custom_buying_in_days, lead.lead_owner, lead_note.note.as_('last_note')
 		).left_join(lead_note).on(lead.name == lead_note.parent).groupby(lead.name).orderby(lead.modified, order=Order.desc).orderby(lead_note.modified, order=Order.desc))
 
 	follow_ups =  filters.pop('pending_flow_ups', False)
