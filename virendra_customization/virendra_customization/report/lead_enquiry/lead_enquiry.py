@@ -35,7 +35,7 @@ def execute(filters=None):
 			if follow_ups:
 				query = query.where(ToDo.date <= add_to_date(filters["to_date"],hours=23, minutes=59, seconds=59))
 			else:
-				query = query.where(lead.creation <= filters["to_date"])
+				query = query.where(lead.creation <= add_to_date(filters["to_date"],hours=23, minutes=59, seconds=59))
 		if filters.get("brand"):
 			query = query.where(lead.custom_brand == filters["brand"])
 		if filters.get("model"):
