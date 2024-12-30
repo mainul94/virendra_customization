@@ -2,58 +2,63 @@
 // For license information, please see license.txt
 
 frappe.query_reports["Enquiries of Today"] = {
-	filters: [
+	"filters": [
 		{
-			"fieldname": "name",
+			"fieldname":"name",
 			"label": __("Name"),
 			"fieldtype": "Data",
 		},
 		{
-			"fieldname": "mobile",
+			"fieldname":"mobile",
 			"label": __("Mobile"),
 			"fieldtype": "Data"
 		},
 		{
-			"fieldname": "status",
-			"label": __("Status"),
-			"fieldtype": "Select",
-			"options": [" ", "Test Drive Completed", "Retail", "Booking", "Lost"]
-		},
-		{
-			"fieldname": "brand",
+			"fieldname":"brand",
 			"label": __("Brand"),
 			"fieldtype": "Link",
 			"options": "Brand"
 		},
 		{
-			"fieldname": "model",
-			"label": __("Model"),
+			"fieldname":"vehicle",
+			"label": __("Vehicle"),
 			"fieldtype": "Link",
-			"options": "Model"
+			"options": "Vehicle Name"
 		},
 		{
-			"fieldname": "variant",
+			"fieldname":"variant",
 			"label": __("Variant"),
 			"fieldtype": "Link",
 			"options": "Variant"
 		},
 		{
-			"fieldname": "city",
+			"fieldname":"city",
 			"label": __("City"),
 			"fieldtype": "Link",
 			"options": "City"
 		},
 		{
-			"fieldname": "lead_owner",
-			"label": __("Lead Owner"),
-			"fieldtype": "Link",
-			"options": "User"
+			"fieldname":"pincode",
+			"label": __("Pincode"),
+			"fieldtype": "Data"
 		},
 		{
-			"fieldname": "lead_type",
-			"label": __("Lead Type"),
+			"fieldname":"status",
+			"label": __("Lead Status"),
 			"fieldtype": "Select",
-			"options": [" ", "Client", "Channel Partner", "Consultant"]
+			"options": [" ", "Hot", "Warm", "Cold", "Lost"]
+		},
+		{
+			"fieldname":"lead_progress",
+			"label": __("Lead Progress"),
+			"fieldtype": "Select",
+			"options": [" ", "Callback Scheduled", "TD Requested", "Home TD Scheduled", "Showroom Visit Scheduled", "Showroom TD Scheduled", "Price Quote Shared", "Purchased Other Vehicle / Lost", "Booked"]
+		},
+		{
+			"fieldname":"lead_owner",
+			"label": __("Assigned To"),
+			"fieldtype": "Link",
+			"options": "User"
 		}
 	]
 };

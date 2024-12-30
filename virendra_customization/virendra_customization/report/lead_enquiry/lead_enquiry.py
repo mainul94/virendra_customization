@@ -52,6 +52,9 @@ def execute(filters=None):
 			query = query.where(lead.lead_progress == filters["lead_progress"])
 		if filters.get("lead_owner"):
 			query = query.where(lead.lead_owner == filters["lead_owner"])
+		
+		if filters.get("vehicle"):
+			query = query.where(lead.custom_vehicle == filters["vehicle"])
 
 	data = query.run(as_dict=True)
 
