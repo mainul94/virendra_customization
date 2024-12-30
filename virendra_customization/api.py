@@ -15,6 +15,7 @@ def wasender_message(response: dict):
     if not frappe.db.exists('Lead', _map_dict):
         lead = frappe.new_doc("Lead")
         lead.update(_map_dict)
+        lead.set('lead_status', 'Hot')
         lead.insert(ignore_permissions=True)
     return 'Success'
 
