@@ -30,10 +30,10 @@ frappe.query_reports["Lead Enquiry Pending Follow-ups"] = {
 			"options": "Brand"
 		},
 		{
-			"fieldname":"model",
+			"fieldname":"vehicle",
 			"label": __("Vehicle"),
 			"fieldtype": "Link",
-			"options": "Model"
+			"options": "Vehicle Name"
 		},
 		{
 			"fieldname":"variant",

@@ -20,10 +20,10 @@ frappe.query_reports["Enquiries of Yesterday"] = {
 			"options": "Brand"
 		},
 		{
-			"fieldname":"model",
+			"fieldname":"vehicle",
 			"label": __("Vehicle"),
 			"fieldtype": "Link",
-			"options": "Model"
+			"options": "Vehicle Name"
 		},
 		{
 			"fieldname":"variant",
