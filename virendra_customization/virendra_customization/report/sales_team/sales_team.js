@@ -70,5 +70,8 @@ frappe.query_reports["Sales Team"] = {
 			"fieldtype": "Link",
 			"options": "User"
 		}
-	]
+	],
+	onload: report => {
+		report.page.set_title(__("Sales Team Report"))
+	}
 };

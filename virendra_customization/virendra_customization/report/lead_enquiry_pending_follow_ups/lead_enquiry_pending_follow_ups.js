@@ -70,5 +70,8 @@ frappe.query_reports["Lead Enquiry Pending Follow-ups"] = {
 			"fieldtype": "Link",
 			"options": "User"
 		}
-	]
+	],
+	onload: report => {
+		report.page.set_title(__("Pending Follow Up"))
+	}
 };

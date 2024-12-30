@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"iMtTlupAOG\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">CRM Dashboard</span>\",\"col\":12}},{\"id\":\"am6kxey5Eu\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"All Leads\",\"col\":3}},{\"id\":\"U02IjjQJu-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today's Leads\",\"col\":3}},{\"id\":\"7IFFD5HrbX\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Yesterday Leads\",\"col\":3}},{\"id\":\"vdaQIb0mC_\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Follow ups\",\"col\":3}},{\"id\":\"HQV2x7MJD0\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Callback Scheduled\",\"col\":3}},{\"id\":\"nKorvPshnH\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Test Drive Requested\",\"col\":3}},{\"id\":\"i0sIbEcWr0\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Home Test Drive Requested\",\"col\":3}},{\"id\":\"Dw5uaUrEvz\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Showroom Visit Scheduled\",\"col\":3}},{\"id\":\"Deova3ly8s\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Hot Leads\",\"col\":3}},{\"id\":\"ppg7WeDZgL\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Price Quote Shared\",\"col\":3}},{\"id\":\"yGi6auf2l2\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Customers\",\"col\":3}},{\"id\":\"36ek6h-36f\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"User\",\"col\":3}}]",
+ "content": "[{\"id\":\"iMtTlupAOG\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">CRM Dashboard</span>\",\"col\":12}},{\"id\":\"am6kxey5Eu\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"All Leads\",\"col\":3}},{\"id\":\"U02IjjQJu-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today's Leads\",\"col\":3}},{\"id\":\"7IFFD5HrbX\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Yesterday Leads\",\"col\":3}},{\"id\":\"vdaQIb0mC_\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Follow ups\",\"col\":3}},{\"id\":\"Deova3ly8s\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Hot Leads\",\"col\":3}},{\"id\":\"HQV2x7MJD0\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Callback Scheduled\",\"col\":3}},{\"id\":\"nKorvPshnH\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Test Drive Requested\",\"col\":3}},{\"id\":\"i0sIbEcWr0\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Home Test Drive Requested\",\"col\":3}},{\"id\":\"Dw5uaUrEvz\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Showroom Visit Scheduled\",\"col\":3}},{\"id\":\"ppg7WeDZgL\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Price Quote Shared\",\"col\":3}},{\"id\":\"36ek6h-36f\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"User\",\"col\":3}}]",
  "creation": "2024-12-29 13:11:50.169386",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "CRM Dashboard",
  "links": [],
- "modified": "2024-12-30 11:48:33.246863",
+ "modified": "2024-12-30 13:23:13.686445",
  "modified_by": "Administrator",
  "module": "Virendra Customization",
  "name": "CRM Dashboard",
@@ -61,10 +61,6 @@
   {
    "label": "Showroom Visit Scheduled",
    "number_card_name": "Showroom Visit Scheduled"
-  },
-  {
-   "label": "Active Customers",
-   "number_card_name": "Active Customers"
   }
  ],
  "owner": "Administrator",

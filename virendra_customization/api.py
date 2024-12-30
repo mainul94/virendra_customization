@@ -2,7 +2,9 @@ import frappe
 
 
 @frappe.whitelist(allow_guest=True, methods=["POST"])
-def wasender_message(response: dict):
+def wasender_message(**response: dict):
+    frappe.log_error("Web hoook Request", f"args: {response}")
+    return
     contact = response.get("contact", {})
     _map_dict = {
         "mobile_no": contact.get("phone_number"),
