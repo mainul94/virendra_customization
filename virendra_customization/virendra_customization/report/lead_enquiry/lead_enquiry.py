@@ -11,7 +11,7 @@ def execute(filters=None):
 	lead_note = frappe.qb.DocType("CRM Note")
 	query = (frappe.qb.from_(lead).select(
 			lead.name, lead.creation, lead.lead_name, lead.mobile_no, lead.custom_model, 
-			lead.custom_variant, lead.custom_vehicle_status, lead.custom_buying_in_days, lead.lead_owner, lead_note.note.as_('last_note')
+			lead.custom_variant, lead.lead_status,, lead.lead_progress, lead.custom_buying_in_days, lead.lead_owner, lead_note.note.as_('last_note')
 		).left_join(lead_note).on(lead.name == lead_note.parent).groupby(lead.name).orderby(lead.modified, order=Order.desc).orderby(lead_note.modified, order=Order.desc))
 
 	follow_ups =  filters.pop('pending_flow_ups', False)
@@ -47,9 +47,9 @@ def execute(filters=None):
 		if filters.get("pincode"):
 			query = query.where(lead.custom_pincode == filters["pincode"])
 		if filters.get("status"):
-			query = query.where(lead.custom_vehicle_status == filters["status"])
+			query = query.where(lead.lead_status == filters["status"])
 		if filters.get("lead_progress"):
-			query = query.where(lead.custom_lead_progress == filters["lead_progress"])
+			query = query.where(lead.lead_progress == filters["lead_progress"])
 		if filters.get("lead_owner"):
 			query = query.where(lead.lead_owner == filters["lead_owner"])
 
@@ -61,7 +61,8 @@ def execute(filters=None):
 		{"fieldname": "mobile_no", "label": "Mobile No", "fieldtype": "Data", "width": 150},
 		{"fieldname": "custom_model", "label": "Model", "fieldtype": "Data", "width": 150},
 		{"fieldname": "custom_variant", "label": "Variant", "fieldtype": "Data", "width": 150},
-		{"fieldname": "custom_vehicle_status", "label": "Vehicle Status", "fieldtype": "Data", "width": 150},
+		{"fieldname": "lead_status", "label": "Status", "fieldtype": "Data", "width": 150},
+		{"fieldname": "lead_progress", "label": "Progress", "fieldtype": "Data", "width": 150},
 		{"fieldname": "custom_buying_in_days", "label": "Buying in Days", "fieldtype": "Data", "width": 150},
 		{"fieldname": "last_note", "label": "Last Note", "fieldtype": "Data", "width": 150},
 		{"fieldname": "lead_owner", "label": "Assigned To", "fieldtype": "Data", "width": 150}

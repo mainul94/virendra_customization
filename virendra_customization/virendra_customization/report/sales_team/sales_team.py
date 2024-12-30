@@ -7,10 +7,9 @@ from frappe import _, scrub
 
 def execute(filters=None):
 	lead = frappe.qb.DocType("Lead")
-	query = frappe.qb.from_(lead).select(lead.lead_owner, lead.custom_vehicle_status)
+	query = frappe.qb.from_(lead).select(lead.lead_owner, lead.lead_progress)
 	if filters.get('from_date'):
 		query = query.where(lead.creation >= filters.get('from_date'))
-
 	if filters.get('to_date'):
 		query = query.where(lead.creation <= filters.get('to_date'))
 	
@@ -31,10 +30,15 @@ def execute(filters=None):
 
 	if filters.get('dealer'):
 		query = query.where(lead.custom_dealer == filters.get('dealer'))
+	if filters.get('status'):
+		query = query.where(lead.lead_status == filters.get('status'))
+	if filters.get('lead_progress'):
+		query = query.where(lead.lead_progress == filters.get('lead_progress'))
 
 	data = query.run(as_dict=True)
 
-	veicle_status = ['Test Drive Completed', 'Booking', 'Retail', 'Lost']
+	veicle_status = ["Callback Scheduled", "TD Requested", "Home TD Scheduled", "Showroom Visit Scheduled", "Showroom TD Scheduled",
+					 "Price Quote Shared", "Purchased Other Vehicle / Lost", "Booked"]
 	rows = {}
 
 	for d in data:
@@ -45,8 +49,8 @@ def execute(filters=None):
 				**{scrub(status): 0 for status in veicle_status}
 			}
 		rows[d['lead_owner']]["total"] += 1
-		if d['custom_vehicle_status'] in veicle_status:
-			rows[d['lead_owner']][scrub(d['custom_vehicle_status'])] += 1
+		if d['lead_progress'] in veicle_status:
+			rows[d['lead_owner']][scrub(d['lead_progress'])] += 1
 
 	result = list(rows.values())
 
