@@ -2,9 +2,7 @@
 # For license information, please see license.txt
 
 # import frappe
-from virendra_customization.virendra_customization.report.lead_enquiry_pending_follow_ups.lead_enquiry_pending_follow_ups import (
-    execute as _execute,
-)
+from virendra_customization.virendra_customization.report.lead_enquiry.lead_enquiry import execute as _execute
 from frappe.utils import getdate, add_days
 
 

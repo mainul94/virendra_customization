@@ -4,50 +4,71 @@
 frappe.query_reports["Sales Team"] = {
 	"filters": [
 		{
-			"fieldname": "lead_owner",
-			"label": __("Lead Owner"),
-			"fieldtype": "Link",
-			"options": "User"
+			"fieldname":"name",
+			"label": __("Name"),
+			"fieldtype": "Data",
 		},
 		{
-			"fieldname": "brand",
+			"fieldname":"mobile",
+			"label": __("Mobile"),
+			"fieldtype": "Data"
+		},
+		{
+			"fieldname":"from_date",
+			"label": __("From Date"),
+			"fieldtype": "Date"
+		},
+		{
+			"fieldname":"to_date",
+			"label": __("To Date"),
+			"fieldtype": "Date"
+		},
+		{
+			"fieldname":"brand",
 			"label": __("Brand"),
 			"fieldtype": "Link",
 			"options": "Brand"
 		},
 		{
-			"fieldname": "model",
-			"label": __("Model"),
+			"fieldname":"model",
+			"label": __("Vehicle"),
 			"fieldtype": "Link",
 			"options": "Model"
 		},
 		{
-			"fieldname": "variant",
+			"fieldname":"variant",
 			"label": __("Variant"),
 			"fieldtype": "Link",
 			"options": "Variant"
 		},
 		{
-			"fieldname": "city",
+			"fieldname":"city",
 			"label": __("City"),
 			"fieldtype": "Link",
 			"options": "City"
 		},
 		{
-			"fieldname": "dealer",
-			"label": __("Dealer"),
+			"fieldname":"pincode",
+			"label": __("Pincode"),
+			"fieldtype": "Data"
+		},
+		{
+			"fieldname":"status",
+			"label": __("Lead Status"),
+			"fieldtype": "Select",
+			"options": [" ", "Hot", "Warm", "Cold", "Lost"]
+		},
+		{
+			"fieldname":"lead_progress",
+			"label": __("Lead Progress"),
+			"fieldtype": "Select",
+			"options": [" ", "Callback Scheduled", "TD Requested", "Home TD Scheduled", "Showroom Visit Scheduled", "Showroom TD Scheduled", "Price Quote Shared", "Purchased Other Vehicle / Lost", "Booked"]
+		},
+		{
+			"fieldname":"lead_owner",
+			"label": __("Assigned To"),
 			"fieldtype": "Link",
-			"options": "Dealer"
-		},
-		{
-			"fieldname": "from_date",
-			"label": __("From Date"),
-			"fieldtype": "Date"
-		},
-		{
-			"fieldname": "to_date",
-			"label": __("To Date"),
-			"fieldtype": "Date"
+			"options": "User"
 		}
 	]
 };

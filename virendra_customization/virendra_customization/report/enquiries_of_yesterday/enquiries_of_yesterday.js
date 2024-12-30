@@ -14,16 +14,6 @@ frappe.query_reports["Enquiries of Yesterday"] = {
 			"fieldtype": "Data"
 		},
 		{
-			"fieldname":"from_date",
-			"label": __("From Date"),
-			"fieldtype": "Date"
-		},
-		{
-			"fieldname":"to_date",
-			"label": __("To Date"),
-			"fieldtype": "Date"
-		},
-		{
 			"fieldname":"brand",
 			"label": __("Brand"),
 			"fieldtype": "Link",
