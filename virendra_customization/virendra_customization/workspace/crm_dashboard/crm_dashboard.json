@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "CRM Dashboard",
  "links": [],
- "modified": "2024-12-30 11:41:28.676183",
+ "modified": "2024-12-30 11:48:33.246863",
  "modified_by": "Administrator",
  "module": "Virendra Customization",
  "name": "CRM Dashboard",
@@ -71,7 +71,11 @@
  "parent_page": "",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Sales User"
+  }
+ ],
  "sequence_id": 2.0,
  "shortcuts": [],
  "title": "CRM Dashboard"

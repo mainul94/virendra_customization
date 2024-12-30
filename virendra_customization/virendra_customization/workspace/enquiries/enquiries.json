@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Enquiries",
  "links": [],
- "modified": "2024-12-30 11:21:15.052309",
+ "modified": "2024-12-30 11:48:13.930002",
  "modified_by": "Administrator",
  "module": "Virendra Customization",
  "name": "Enquiries",
@@ -22,7 +22,11 @@
  "parent_page": "CRM",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Sales User"
+  }
+ ],
  "sequence_id": 35.0,
  "shortcuts": [
   {
