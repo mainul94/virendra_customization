@@ -60,5 +60,11 @@ frappe.query_reports["Enquiries of Yesterday"] = {
 			"fieldtype": "Link",
 			"options": "User"
 		}
-	]
+	],
+	formatter: (value, row, column, data) => {
+		if(value && column.fieldname==="lead_name") {
+			value = `<a href="/app/lead/${data.name}">${value}</a>`
+		}
+		return value
+	}
 };
