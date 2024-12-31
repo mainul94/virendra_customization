@@ -15,7 +15,7 @@ def execute(filters=None):
 		lead_note.idx, order=Order.desc
 	).limit(1)
 	query = (frappe.qb.from_(lead).select(
-			lead.name, lead.creation, lead.lead_name, lead.mobile_no, lead.custom_model, 
+			lead.name, lead.creation, lead.lead_name, lead.mobile_no, lead.custom_model, lead.custom_vehicle, lead.custom_brand,
 			lead.custom_variant, lead.lead_status, lead.lead_progress, lead.custom_buying_in_days, lead.lead_owner, last_noste_as.as_('last_note')
 		).orderby(lead.modified, order=Order.desc))
 
@@ -67,7 +67,9 @@ def execute(filters=None):
 		{"fieldname": "creation", "label": "Creation", "fieldtype": "Date", "width": 150},
 		{"fieldname": "lead_name", "label": "Lead Name", "fieldtype": "Data", "width": 150},
 		{"fieldname": "mobile_no", "label": "Mobile No", "fieldtype": "Data", "width": 150},
+		{"fieldname": "custom_brand", "label": "Brand", "fieldtype": "Data", "width": 150},
 		{"fieldname": "custom_model", "label": "Model", "fieldtype": "Data", "width": 150},
+		{"fieldname": "custom_vehicle", "label": "Vehicle", "fieldtype": "Data", "width": 150},
 		{"fieldname": "custom_variant", "label": "Variant", "fieldtype": "Data", "width": 150},
 		{"fieldname": "lead_status", "label": "Status", "fieldtype": "Data", "width": 150},
 		{"fieldname": "lead_progress", "label": "Progress", "fieldtype": "Data", "width": 150},

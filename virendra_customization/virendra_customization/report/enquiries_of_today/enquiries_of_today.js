@@ -63,7 +63,7 @@ frappe.query_reports["Enquiries of Today"] = {
 	],
 	formatter: (value, row, column, data) => {
 		if(value && column.fieldname==="lead_name") {
-			value = `<a href="/app/lead/${data.name}">${value}</a>`
+			value = `<a href="/app/lead/${data.name}"><strong>${value}</strong></a>`
 		}
 		return value || ''
 	}
