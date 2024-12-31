@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"i2av_x2EaD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Lead</b></span>\",\"col\":12}},{\"id\":\"ggaQMZ9-Cz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"+ New Lead\",\"col\":3}},{\"id\":\"XbKZ7-kXjp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Enquiries</span>\",\"col\":12}},{\"id\":\"NaEnM57ArI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Leads\",\"col\":3}},{\"id\":\"ImRbDqMuw3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Today's Leads\",\"col\":3}},{\"id\":\"7Qt9WeIk8l\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Yesterday's Leads\",\"col\":3}},{\"id\":\"gU73PHZv6P\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports</b></span>\",\"col\":12}},{\"id\":\"fX1a1B0pAo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Lead Enquiries\",\"col\":3}},{\"id\":\"nYphsS-zPc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Team Report\",\"col\":3}},{\"id\":\"vMVXE2fzWR\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Follow Up</b></span>\",\"col\":12}},{\"id\":\"7KY_0LfvHo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Follow Up \",\"col\":3}}]",
+ "content": "[{\"id\":\"i2av_x2EaD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Lead</b></span>\",\"col\":12}},{\"id\":\"ggaQMZ9-Cz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"+ New Lead\",\"col\":3}},{\"id\":\"XbKZ7-kXjp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Enquiries</span>\",\"col\":12}},{\"id\":\"fX1a1B0pAo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Lead Enquiries\",\"col\":3}},{\"id\":\"ImRbDqMuw3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Today's Leads\",\"col\":3}},{\"id\":\"7Qt9WeIk8l\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Yesterday's Leads\",\"col\":3}},{\"id\":\"gU73PHZv6P\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports</b></span>\",\"col\":12}},{\"id\":\"nYphsS-zPc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Team Report\",\"col\":3}},{\"id\":\"vMVXE2fzWR\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Follow Up</b></span>\",\"col\":12}},{\"id\":\"7KY_0LfvHo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Pending Follow Up \",\"col\":3}}]",
  "creation": "2024-12-29 13:04:09.208988",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Enquiries",
  "links": [],
- "modified": "2024-12-30 16:33:05.592671",
+ "modified": "2024-12-31 06:37:03.632702",
  "modified_by": "Administrator",
  "module": "Virendra Customization",
  "name": "Enquiries",
@@ -58,14 +58,6 @@
    "label": "Today's Leads",
    "link_to": "Enquiries of Today",
    "type": "Report"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "All Leads",
-   "link_to": "Lead",
-   "stats_filter": "[]",
-   "type": "DocType"
   },
   {
    "color": "Grey",

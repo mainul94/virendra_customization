@@ -75,6 +75,6 @@ frappe.query_reports["Lead Enquiry"] = {
 		if(value && column.fieldname==="lead_name") {
 			value = `<a href="/app/lead/${data.name}">${value}</a>`
 		}
-		return value
+		return value || ''
 	}
 };

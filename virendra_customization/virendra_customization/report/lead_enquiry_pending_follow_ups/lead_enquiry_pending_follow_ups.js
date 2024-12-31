@@ -78,6 +78,6 @@ frappe.query_reports["Lead Enquiry Pending Follow-ups"] = {
 		if(value && column.fieldname==="lead_name") {
 			value = `<a href="/app/lead/${data.name}">${value}</a>`
 		}
-		return value
+		return value || ''
 	}
 };

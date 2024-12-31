@@ -9,10 +9,15 @@ from frappe.utils import add_to_date
 def execute(filters=None):
 	lead = frappe.qb.DocType("Lead")
 	lead_note = frappe.qb.DocType("CRM Note")
+	last_noste_as = frappe.qb.from_(lead_note).select(
+		lead_note.note
+	).where(lead.name == lead_note.parent).orderby(
+		lead_note.idx, order=Order.desc
+	).limit(1)
 	query = (frappe.qb.from_(lead).select(
 			lead.name, lead.creation, lead.lead_name, lead.mobile_no, lead.custom_model, 
-			lead.custom_variant, lead.lead_status, lead.lead_progress, lead.custom_buying_in_days, lead.lead_owner, lead_note.note.as_('last_note')
-		).left_join(lead_note).on(lead.name == lead_note.parent).groupby(lead.name).orderby(lead.modified, order=Order.desc).orderby(lead_note.modified, order=Order.desc))
+			lead.custom_variant, lead.lead_status, lead.lead_progress, lead.custom_buying_in_days, lead.lead_owner, last_noste_as.as_('last_note')
+		).orderby(lead.modified, order=Order.desc))
 
 	follow_ups =  filters.pop('pending_flow_ups', False)
 	if follow_ups:
@@ -56,7 +61,7 @@ def execute(filters=None):
 		if filters.get("vehicle"):
 			query = query.where(lead.custom_vehicle == filters["vehicle"])
 
-	data = query.run(as_dict=True)
+	data = query.run(as_dict=True, debug=True)
 
 	columns = [
 		{"fieldname": "creation", "label": "Creation", "fieldtype": "Date", "width": 150},
