@@ -48,7 +48,7 @@ def execute(filters=None):
 		if filters.get("variant"):
 			query = query.where(lead.custom_variant == filters["variant"])
 		if filters.get("city"):
-			query = query.where(lead.custom_city_name == filters["city"])
+			query = query.where(lead.city == filters["city"])
 		if filters.get("pincode"):
 			query = query.where(lead.custom_pincode == filters["pincode"])
 		if filters.get("status"):
@@ -68,9 +68,10 @@ def execute(filters=None):
 		{"fieldname": "lead_name", "label": "Lead Name", "fieldtype": "Data", "width": 150},
 		{"fieldname": "mobile_no", "label": "Mobile No", "fieldtype": "Data", "width": 150},
 		{"fieldname": "custom_brand", "label": "Brand", "fieldtype": "Data", "width": 150},
-		{"fieldname": "custom_model", "label": "Model", "fieldtype": "Data", "width": 150},
 		{"fieldname": "custom_vehicle", "label": "Vehicle", "fieldtype": "Data", "width": 150},
 		{"fieldname": "custom_variant", "label": "Variant", "fieldtype": "Data", "width": 150},
+		{"fieldname": "custom_model", "label": "Model", "fieldtype": "Data", "width": 150},
+		{"fieldname": "name", "label": "Lead", "fieldtype": "Link", "options": "Lead", "width": 150},
 		{"fieldname": "lead_status", "label": "Status", "fieldtype": "Data", "width": 150},
 		{"fieldname": "lead_progress", "label": "Progress", "fieldtype": "Data", "width": 150},
 		{"fieldname": "custom_buying_in_days", "label": "Buying in Days", "fieldtype": "Data", "width": 150},

@@ -4,15 +4,31 @@
   "doc_type": "Lead",
   "docstatus": 0,
   "doctype": "Property Setter",
-  "doctype_or_field": "DocType",
-  "field_name": null,
+  "doctype_or_field": "DocField",
+  "field_name": "city",
   "is_system_generated": 0,
-  "modified": "2024-12-31 11:37:19.582110",
+  "modified": "2025-01-01 22:07:40.567614",
   "module": "Virendra Customization",
-  "name": "Lead-main-field_order",
-  "property": "field_order",
+  "name": "Lead-city-options",
+  "property": "options",
   "property_type": "Data",
   "row_name": null,
-  "value": "[\"custom_customer_details\", \"naming_series\", \"salutation\", \"first_name\", \"middle_name\", \"last_name\", \"column_break_1\", \"lead_name\", \"job_title\", \"gender\", \"source\", \"custom_interested_in\", \"col_break123\", \"status\", \"customer\", \"type\", \"request_type\", \"contact_info_tab\", \"email_id\", \"website\", \"column_break_20\", \"mobile_no\", \"whatsapp_no\", \"column_break_16\", \"phone\", \"phone_ext\", \"organization_section\", \"company_name\", \"no_of_employees\", \"column_break_28\", \"annual_revenue\", \"industry\", \"market_segment\", \"column_break_31\", \"territory\", \"fax\", \"address_section\", \"address_html\", \"column_break_38\", \"custom_pincode\", \"city\", \"state\", \"country\", \"column_break2\", \"contact_html\", \"custom_lead_managment\", \"lead_owner\", \"lead_status\", \"lead_progress\", \"custom_column_break_ffngv\", \"qualification_tab\", \"qualification_status\", \"column_break_64\", \"qualified_by\", \"qualified_on\", \"custom_section_break_lqg4m\", \"custom_brand\", \"custom_model\", \"custom_buying_in_days\", \"custom_vehicle\", \"custom_booking_date\", \"custom_delivery_date\", \"custom_column_break_hgnfy\", \"custom_variant\", \"custom_dealer\", \"custom_city_name\", \"other_info_tab\", \"campaign_name\", \"company\", \"column_break_22\", \"language\", \"image\", \"title\", \"column_break_50\", \"disabled\", \"unsubscribed\", \"blog_subscriber\", \"activities_tab\", \"open_activities_html\", \"all_activities_section\", \"all_activities_html\", \"notes_tab\", \"notes_html\", \"notes\", \"dashboard_tab\"]"
+  "value": "City"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Lead",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "city",
+  "is_system_generated": 0,
+  "modified": "2025-01-01 22:08:07.756711",
+  "module": "Virendra Customization",
+  "name": "Lead-city-fieldtype",
+  "property": "fieldtype",
+  "property_type": "Data",
+  "row_name": null,
+  "value": "Link"
  }
 ]
